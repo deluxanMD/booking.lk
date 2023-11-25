@@ -12,6 +12,7 @@ const BookingTextField = ({
   name,
   defaultValue,
   label,
+  ...rest
 }: BookingTextFieldProps) => {
   const { control } = useFormContext();
 
@@ -29,6 +30,7 @@ const BookingTextField = ({
           fullWidth
           data-testid={`BookingTextField.${name}`}
           {...field}
+          {...rest}
         />
       )}
     />
