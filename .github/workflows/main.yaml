@@ -35,6 +35,7 @@ jobs:
           build: npm run build
           start: npm start
           browser: chrome
+          component: true
 
       - name: Code Coverage
         run: npm run test:coverage
