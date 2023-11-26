@@ -1,8 +1,10 @@
+import { Box, Typography } from "@mui/material";
+
 const App = () => {
   return (
-    <div>
-      <p>App Component</p>
-    </div>
+    <Box data-cy="App.Container" m={2}>
+      <Typography>App Component</Typography>
+    </Box>
   );
 };
 

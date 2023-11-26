@@ -1,0 +1,4 @@
+ignore:
+  - "**/*.cy.ts*"
+  - "**/reportWebVitals.ts"
+  - "**/index.tsx"
