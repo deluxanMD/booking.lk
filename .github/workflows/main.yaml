@@ -29,19 +29,15 @@ jobs:
       - name: Lint Check
         run: npm run prettier:check
 
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
+          browser: chrome
+
       - name: Code Coverage
         run: npm run test:coverage
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npx playwright test
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
 
       - uses: codecov/codecov-action@v3
         with:
