@@ -1,2 +1,4 @@
 ignore:
   - "**/*.cy.ts*"
+  - "src/reportWebVitals.ts"
+  - "src/index.tsx"
