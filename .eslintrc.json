@@ -23,7 +23,8 @@
     //add customize rules here as per your project's needs
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
-    "jest/expect-expect": "off"
+    "jest/expect-expect": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
     "react": {
