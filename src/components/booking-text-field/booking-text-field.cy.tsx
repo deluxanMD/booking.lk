@@ -63,7 +63,7 @@ describe("booking-text-field", () => {
     cy.get("input").should("have.attr", "type", "password");
   });
 
-  it.only("should handle error message", () => {
+  it("should handle error message", () => {
     cy.mount(
       <TestFormProviderWithError>
         <BookingTextField name="testField" defaultValue="" label="test label" />
