@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cypress/code-coverage": "^3.12.11",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.18",
@@ -15,6 +16,8 @@
     "@types/node": "^16.18.65",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.17",
+    "istanbul-lib-coverage": "^3.2.2",
+    "nyc": "^15.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
@@ -24,16 +27,19 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:coverage": "CI=true npm test -- --env=jsdom --watchAll=false --coverage",
+    "test:coverageold": "CI=true npm test -- --env=jsdom --watchAll=false --coverage",
+    "cy:run": "cypress run --e2e",
+    "ct:run": "cypress run --component",
+    "cy:open": "cypress open --e2e",
+    "ct:open": "cypress open --component",
+    "test:coverage": "npm run test -- --coverage --watchAll=false && npm run cy:run -- --env coverage=true && npm run ct:run -- --env coverage=true --browser=chrome --headless",
     "eject": "react-scripts eject",
     "lint": "npx eslint src --ext .js,.jsx,.ts,.tsx --fix",
     "prettier:check": "npx prettier --check src",
-    "prettier:fix": "npx prettier --write src",
-    "cy:e2e": "cypress open --e2e",
-    "cy:ct": "cypress open --component"
+    "prettier:fix": "npx prettier --write src"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +61,7 @@
     ]
   },
   "devDependencies": {
+    "@cypress/instrument-cra": "^1.4.0",
     "@hookform/devtools": "^4.3.1",
     "@testing-library/cypress": "^10.0.1",
     "@types/cypress": "^1.1.3",
