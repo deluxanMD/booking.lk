@@ -1,4 +1,4 @@
 ignore:
-  # - "**/*.cy.ts*"
+  - "**/*.cy.ts*"
   - "**/reportWebVitals.ts"
   - "**/index.tsx"
