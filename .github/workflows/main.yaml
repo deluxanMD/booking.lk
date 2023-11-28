@@ -29,13 +29,16 @@ jobs:
       - name: Lint Check
         run: npm run prettier:check
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm start
-          browser: chrome
-          component: true
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     build: npm run build
+      #     start: npm start
+      #     browser: chrome
+      #     component: true
+
+      - name: Jest run
+        run: npm run test
 
       - name: Code Coverage
         run: npm run test:coverage
