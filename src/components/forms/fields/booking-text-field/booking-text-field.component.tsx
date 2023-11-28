@@ -1,4 +1,9 @@
-import { TextField, TextFieldProps } from "@mui/material";
+import {
+  FormControl,
+  FormHelperText,
+  TextField,
+  TextFieldProps,
+} from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
 type BookingTextFieldProps = {
@@ -22,19 +27,20 @@ const BookingTextField = ({
       defaultValue={defaultValue}
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <TextField
-          size={size}
-          error={!!error}
-          label={label}
-          helperText={!!error && error?.message}
-          fullWidth
-          data-testid={`BookingTextField.${name}`}
-          inputProps={{
-            "data-testid": "BookingTextField.Input",
-          }}
-          {...field}
-          {...rest}
-        />
+        <FormControl fullWidth>
+          <TextField
+            size={size}
+            error={!!error}
+            label={label}
+            data-testid={`BookingTextField.${name}`}
+            inputProps={{
+              "data-testid": "BookingTextField.Input",
+            }}
+            {...field}
+            {...rest}
+          />
+          {!!error && <FormHelperText error>{error?.message}</FormHelperText>}
+        </FormControl>
       )}
     />
   );
