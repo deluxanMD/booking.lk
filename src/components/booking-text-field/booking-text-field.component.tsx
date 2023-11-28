@@ -28,11 +28,14 @@ const BookingTextField = ({
           label={label}
           helperText={
             !!error && (
-              <p data-cy="BookingTextField.HelperText">{error?.message}</p>
+              <p data-testid="BookingTextField.HelperText">{error?.message}</p>
             )
           }
           fullWidth
-          data-cy={`BookingTextField.${name}`}
+          data-testid={`BookingTextField.${name}`}
+          inputProps={{
+            "data-testid": "BookingTextField.Input",
+          }}
           {...field}
           {...rest}
         />

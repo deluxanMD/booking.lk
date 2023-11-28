@@ -13,7 +13,7 @@ export const TestFormProvider = ({ children }: TestFormProviderProps) => {
   return (
     <BookingForm
       formMethods={formMethods}
-      onSubmit={formMethods.handleSubmit(/* istanbul ignore next */ () => null)}
+      onSubmit={formMethods.handleSubmit(() => jest.fn())}
       devTool={false}
     >
       {children}
@@ -39,11 +39,11 @@ export const TestFormProviderWithError = ({
   return (
     <BookingForm
       formMethods={formMethods}
-      onSubmit={formMethods.handleSubmit(/* istanbul ignore next */ () => null)}
+      onSubmit={formMethods.handleSubmit(() => jest.fn())}
       devTool={false}
     >
       {children}
-      <Button type="submit" data-cy="TestFormProvider.Button">
+      <Button type="submit" data-testid="TestFormProvider.Button">
         Submit
       </Button>
     </BookingForm>
