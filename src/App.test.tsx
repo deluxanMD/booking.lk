@@ -3,5 +3,7 @@ import App from "./App";
 
 test("renders learn react link", () => {
   render(<App />);
-  expect(screen.getByText(/app component/i)).toBeInTheDocument();
+
+  const container = screen.getByTestId("App.Container");
+  expect(container).toBeInTheDocument();
 });
