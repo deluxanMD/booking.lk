@@ -35,7 +35,7 @@
     "ct:run": "cypress run --component",
     "cy:open": "cypress open --e2e",
     "ct:open": "cypress open --component",
-    "test:coverage": "npm run test -- --coverage --watchAll=false",
+    "test:coverage": "npm run test -- --coverage --watchAll",
     "eject": "react-scripts eject",
     "lint": "npx eslint src --ext .js,.jsx,.ts,.tsx --fix",
     "prettier:check": "npx prettier --check src",

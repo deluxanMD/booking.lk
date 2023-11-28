@@ -3,7 +3,7 @@ import BookingTextField from "./booking-text-field.component";
 import {
   TestFormProvider,
   TestFormProviderWithError,
-} from "../../test-utils/wrappers.test-utils";
+} from "../../../../test-utils/wrappers.test-utils";
 
 const TestComponent = ({ type }: { type?: string }) => {
   return (
@@ -44,8 +44,7 @@ describe("booking-text-field", () => {
     fireEvent.click(submitbtn, { bubbles: true });
 
     await waitFor(() => {
-      const helperText = screen.queryByTestId("BookingTextField.HelperText");
-      expect(helperText).toBeInTheDocument();
+      expect(screen.getByText(/test error/i)).toBeInTheDocument();
     });
   });
 });

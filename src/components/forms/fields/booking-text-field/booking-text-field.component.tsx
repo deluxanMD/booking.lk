@@ -26,11 +26,7 @@ const BookingTextField = ({
           size={size}
           error={!!error}
           label={label}
-          helperText={
-            !!error && (
-              <p data-testid="BookingTextField.HelperText">{error?.message}</p>
-            )
-          }
+          helperText={!!error && error?.message}
           fullWidth
           data-testid={`BookingTextField.${name}`}
           inputProps={{
