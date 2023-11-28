@@ -41,7 +41,7 @@ describe("booking-text-field", () => {
     );
 
     const submitbtn = screen.getByTestId("TestFormProvider.Button");
-    fireEvent.click(submitbtn, { bubbles: true });
+    fireEvent.submit(submitbtn);
 
     await waitFor(() => {
       expect(screen.getByText(/test error/i)).toBeInTheDocument();
