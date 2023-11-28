@@ -11,7 +11,11 @@ const BookingButton = ({
   children,
   "data-testid": dataTestId,
 }: BookingButtonProps) => {
-  return <LoadingButton data-testid={dataTestId}>{children}</LoadingButton>;
+  return (
+    <LoadingButton data-testid={dataTestId ?? "BookingButton"}>
+      {children}
+    </LoadingButton>
+  );
 };
 
 export default BookingButton;
