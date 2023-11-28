@@ -20,7 +20,11 @@ const BookingForm = ({
   return (
     <FormProvider {...formMethods}>
       <Box component="form" data-cy={dataCy} {...rest}>
-        {devTool && <DevTool control={formMethods.control} />}
+        {devTool && (
+          <div data-testid="BookingForm.Devtool">
+            <DevTool control={formMethods.control} />
+          </div>
+        )}
         {children}
       </Box>
     </FormProvider>

@@ -5,16 +5,20 @@ import BookingForm from "../components/forms/booking-form/booking-form.component
 
 type TestFormProviderProps = {
   children: ReactNode;
+  devTool?: boolean;
 };
 
-export const TestFormProvider = ({ children }: TestFormProviderProps) => {
+export const TestFormProvider = ({
+  children,
+  devTool,
+}: TestFormProviderProps) => {
   const formMethods = useForm();
 
   return (
     <BookingForm
       formMethods={formMethods}
       onSubmit={formMethods.handleSubmit(() => jest.fn())}
-      devTool={false}
+      devTool={devTool ?? false}
     >
       {children}
       <Button type="submit" data-testid="TestFormProvider.Button">
@@ -40,7 +44,6 @@ export const TestFormProviderWithError = ({
     <BookingForm
       formMethods={formMethods}
       onSubmit={formMethods.handleSubmit(() => jest.fn())}
-      devTool={false}
     >
       {children}
       <Button type="submit" data-testid="TestFormProvider.Button">
