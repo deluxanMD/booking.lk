@@ -15,17 +15,18 @@ const BookingForm = ({
   "data-cy": dataCy = "BookingForm",
   devTool = true,
   children,
+  onSubmit,
   ...rest
 }: BookingFormProps) => {
   return (
     <FormProvider {...formMethods}>
-      <Box component="form" data-cy={dataCy} {...rest}>
+      <Box data-cy={dataCy} {...rest}>
         {devTool && (
           <div data-testid="BookingForm.Devtool">
             <DevTool control={formMethods.control} />
           </div>
         )}
-        {children}
+        <form onSubmit={formMethods.handleSubmit(onSubmit)}>{children}</form>
       </Box>
     </FormProvider>
   );

@@ -10,9 +10,10 @@ type BookingButtonProps = {
 const BookingButton = ({
   children,
   "data-testid": dataTestId,
+  ...rest
 }: BookingButtonProps) => {
   return (
-    <LoadingButton data-testid={dataTestId ?? "BookingButton"}>
+    <LoadingButton data-testid={dataTestId ?? "BookingButton"} {...rest}>
       {children}
     </LoadingButton>
   );

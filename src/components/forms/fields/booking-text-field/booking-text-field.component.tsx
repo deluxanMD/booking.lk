@@ -8,7 +8,7 @@ import { Controller, useFormContext } from "react-hook-form";
 
 type BookingTextFieldProps = {
   name: string;
-  defaultValue: string;
+  defaultValue?: string;
   label: string;
 } & TextFieldProps;
 
@@ -27,7 +27,7 @@ const BookingTextField = ({
       defaultValue={defaultValue}
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <FormControl fullWidth>
+        <FormControl fullWidth sx={{ marginBottom: 1 }}>
           <TextField
             size={size}
             error={!!error}
