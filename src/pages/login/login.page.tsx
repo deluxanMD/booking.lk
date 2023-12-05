@@ -4,24 +4,25 @@ import BookingForm from "../../components/forms/booking-form/booking-form.compon
 import LoginForm from "../../components/forms/login-form/login-form.component";
 import { useLoginForm } from "../../components/forms/login-form/login-form.hooks";
 import BookingButton from "../../components/forms/fields/booking-button/booking-button.component";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const methods = useLoginForm();
-  const navigate = useNavigate();
 
-  const handleLogin = (data: any) => {
-    if (data.email === "deluxan.m@icloud.com" && data.password === "12345678") {
-      navigate("/");
-    }
+  const handleLogin = () => {
+    return null;
   };
 
   return (
-    <Grid container justifyContent="center" mt={8}>
+    <Grid container justifyContent="center" mt={8} data-testid="Login.Page">
       <Grid item xs={10} md={4} lg={3}>
         <BookingForm formMethods={methods} onSubmit={handleLogin}>
           <LoginForm />
-          <BookingButton variant="contained" type="submit" fullWidth>
+          <BookingButton
+            data-testid="BookingButton.Login"
+            variant="contained"
+            type="submit"
+            fullWidth
+          >
             Login
           </BookingButton>
         </BookingForm>
