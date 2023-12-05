@@ -24,3 +24,6 @@ yarn-error.log*
 /test-results/
 /blob-report/
 /test-results/
+
+# cypress
+.nyc_output

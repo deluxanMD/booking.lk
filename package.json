@@ -19,8 +19,8 @@
     "@types/node": "^16.18.65",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.17",
+    "codecov": "^3.8.3",
     "istanbul-lib-coverage": "^3.2.2",
-    "nyc": "^15.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
@@ -44,7 +44,10 @@
     "eject": "react-scripts eject",
     "lint": "npx eslint src --ext .js,.jsx,.ts,.tsx --fix",
     "prettier:check": "npx prettier --check src",
-    "prettier:fix": "npx prettier --write src"
+    "prettier:fix": "npx prettier --write src",
+    "test:cy": "npx cypress run",
+    "coverage": "nyc npx cypress run --env coverage=true",
+    "report": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "eslintConfig": {
     "extends": [
@@ -75,6 +78,7 @@
     "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "nyc": "^15.1.0",
     "prettier": "^3.1.0"
   },
   "jest": {

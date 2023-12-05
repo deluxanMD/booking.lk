@@ -29,19 +29,19 @@ jobs:
       - name: Lint Check
         run: npm run prettier:check
 
-      # - name: Cypress run
-      #   uses: cypress-io/github-action@v6
-      #   with:
-      #     build: npm run build
-      #     start: npm start
-      #     browser: chrome
-      #     component: true
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
+          browser: chrome
+          component: true
 
       - name: Jest run
         run: npm run test
 
       - name: Code Coverage
-        run: npm run test:coverage
+        run: npm run coverage && npm run report
 
       - uses: codecov/codecov-action@v3
         with:
@@ -51,10 +51,12 @@ jobs:
           fail_ci_if_error: true
           verbose: true
       - run: |
+          set -e
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           find . -iregex "codecov.*"
           chmod +x codecov 
           ./codecov -t ${CODECOV_TOKEN}
+          rm codecov
 
       - name: Build Project
         run: npm run build
