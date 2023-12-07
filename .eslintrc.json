@@ -8,8 +8,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:cypress/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -18,7 +17,7 @@
       "jsx": true
     }
   },
-  "plugins": ["react", "react-hooks", "cypress"],
+  "plugins": ["react", "react-hooks"],
   "rules": {
     //add customize rules here as per your project's needs
     "react/react-in-jsx-scope": "off",
@@ -30,8 +29,5 @@
     "react": {
       "version": "detect"
     }
-  },
-  "globals": {
-    "cy": true
   }
 }
